@@ -32,7 +32,7 @@ class ApplicationMain
 
 		ManifestResources.init(config);
 
-		app.meta["build"] = "1";
+		app.meta["build"] = "2";
 		app.meta["company"] = "HaxeFlixel";
 		app.meta["file"] = "FirstHaxeProject";
 		app.meta["name"] = "FirstHaxeProject";
@@ -56,7 +56,7 @@ class ApplicationMain
 			maximized: false,
 			minimized: false,
 			parameters: {},
-			resizable: true,
+			resizable: false,
 			title: "FirstHaxeProject",
 			width: 1334,
 			x: null,
@@ -65,7 +65,7 @@ class ApplicationMain
 
 		attributes.context = {
 			antialiasing: 0,
-			background: 0,
+			background: 8100576,
 			colorDepth: 32,
 			depth: true,
 			hardware: true,
@@ -99,7 +99,7 @@ class ApplicationMain
 		app.createWindow(attributes);
 		
 		#elseif !air
-		app.window.context.attributes.background = 0;
+		app.window.context.attributes.background = 8100576;
 		app.window.frameRate = 60;
 		#end
 

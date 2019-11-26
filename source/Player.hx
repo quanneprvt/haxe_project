@@ -16,17 +16,23 @@ class Player extends FlxSprite
 		this.animation.add("idle", [0,1,2,3,4,5,6,7,8], 5, true);
 		this.animation.play("idle");
 		this.scale.set(0.25, 0.25);
+		this.updateHitbox();
 	}
 
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
-		if (FlxG.mouse.pressed)
+		if (FlxG.mouse.overlaps(this))
 		{
-			// mDestination.x = FlxG.mouse.getPosition().x;
-			// mDestination.y = FlxG.mouse.getPosition().y;
-			this.setPosition(FlxG.mouse.getPosition().x - 0.5*this.width,
-							FlxG.mouse.getPosition().y - 0.5*this.height);
+			if (FlxG.mouse.justPressed)
+			{
+
+			}
+			if (FlxG.mouse.pressed)
+			{
+				this.setPosition(FlxG.mouse.getPosition().x - 0.5*this.width,
+								FlxG.mouse.getPosition().y - 0.5*this.height);
+			}
 		}
 		// js.Browser.console.log("updating");
 	}
