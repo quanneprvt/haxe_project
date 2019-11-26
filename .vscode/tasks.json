@@ -8,6 +8,17 @@
 				"kind": "build",
 				"isDefault": true
 			}
+		},
+		{
+			"type": "lime",
+			"command": "build",
+			"targetConfiguration": "HTML5",
+			"problemMatcher": [
+				"$haxe-absolute",
+				"$haxe",
+				"$haxe-error",
+				"$haxe-trace"
+			]
 		}
 	]
 }

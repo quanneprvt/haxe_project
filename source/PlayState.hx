@@ -11,6 +11,8 @@ class PlayState extends FlxState
 	{
 		super.create();
 		mPlayer = new Player();
+		//
+		add(mPlayer);
 	}
 
 	override public function update(elapsed:Float):Void
