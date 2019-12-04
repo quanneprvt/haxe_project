@@ -4,30 +4,32 @@ import flixel.group.FlxGroup;
 
 class ObjectMgr extends FlxGroup
 {
-    private function _MakeObjectArr(arr:Array<T>, constructor:Dynamic, length:Float):Void
+    private function _MakeObjectArr<T>(arr, constructor:Class<T>, length:Int):Void
     {
-        for (let i = 0; i< length; i++)
+        // js.Browser.console.log(constructor);
+        for (i in 0...length)
         {
-            let object = new constructor();
+            // var object = new constructor();
+            var object = Type.createInstance(constructor, []);
             arr.push(object);
         }
     }
 
-    private function _InitObjectArr(arr:Array<T>)
+    private function _InitObjectArr(arr:Array<Dynamic>):Void
     {
-        for (let i = 0; i< arr.length; i++)
+        for (i in 0...arr.length)
         {
             arr[i].Init();
         }
     }
 
-    // _StartObjectArr(arr)
-    // {
-    //     for (let i = 0; i< arr.length; i++)
-    //     {
-    //         arr[i].Start();
-    //     }
-    // }
+    private function _StartObjectArr(arr:Array<Dynamic>):Void
+    {
+        for (i in 0...arr.length)
+        {
+            arr[i].Start();
+        }
+    }
 
     // _StartTutorialArr(arr)
     // {

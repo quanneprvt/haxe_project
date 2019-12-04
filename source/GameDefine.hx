@@ -22,8 +22,8 @@ class GameDefine
     public function new():Void
 	{
         //APP
-        APP_W = Lib.current.stage.width;
-        APP_H = Lib.current.stage.height;
+        APP_W = Lib.application.window.width;
+        APP_H = Lib.application.window.height;
 
         //ENEMY BOARD
         ENEMY_BOARD_OFFSET_LEFT       = 150;
@@ -34,6 +34,6 @@ class GameDefine
         ENEMY_BOARD_HEIGHT            = APP_H - ENEMY_BOARD_OFFSET_TOP - ENEMY_BOARD_OFFSET_DOWN;
 
         //PLAYER
-        PLAYER_SPEED = 500;
+        PLAYER_SPEED = 1000;
     }
 }

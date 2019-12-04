@@ -7,33 +7,50 @@ import core.Utils;
 
 class Player extends BaseObject
 {
+	//State Define
+	private static inline var INIT = 0;
+	private static inline var NORMAL = 1;
+	//
 	private var mDestination:Dynamic = {x: 0, y: 0};
 	private var mStartPosition:Dynamic = {x: 0, y: 0};
 	private var mIsArrived:Bool = false;
 	private var mIsTap:Bool = false;
+	private var mState:Int;
 
 	public function new():Void
 	{
         super();
 		// super.create();
-        // js.Browser.console.log("created");
-		this.loadGraphic(AssetPaths.idle__png, true, 512, 510);
-		this.animation.add("idle", [0,1,2,3,4,5,6,7,8], 5, true);
-		this.animation.play("idle");
-		this.scale.set(0.25, 0.25);
-		this.updateHitbox();
 		//
+	}
+	
+	public function Init():Void
+	{
+		_SetState(INIT);
+	}
+
+	public function Start():Void
+	{
+		_SetState(NORMAL);
 	}
 
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
-		_MouseHandler(elapsed);
-		_UpdateSpeed(elapsed);
-		_UpdatePosition(elapsed);
+		switch (mState)
+		{
+			case INIT: {}
+			case NORMAL:
+			{
+				_MouseHandler(elapsed);
+				_UpdateSpeed(elapsed);
+				_UpdatePosition(elapsed);
+			}
+		}
 		// js.Browser.console.log("updating");
 	}
 
+	//PRIVATE FUNCTION
 	private function _MouseHandler(elapsed:Float):Void {
 		//Mouse move handler
 		if (FlxG.mouse.pressed)
@@ -95,5 +112,25 @@ class Player extends BaseObject
 			if (!mIsArrived)
 				this.setPosition(x, y);
 		// js.Browser.console.log(elapsed);
+	}
+
+	private function _SetState(s:Int):Void
+	{
+		mState = s;
+		switch (s)
+		{
+			case INIT:
+			{
+				// js.Browser.console.log(AssetPaths.mc__idle__png);
+				this.loadGraphic("assets/images/Player/mc_idle.png", true, 512, 510);
+				this.animation.add("idle", [0,1,2,3,4,5,6,7,8], 5, true);
+				this.animation.play("idle");
+				this.scale.set(0.25, 0.25);
+				this.updateHitbox();
+				Start();
+			}
+
+			case NORMAL: {}
+		}
 	}
 }
