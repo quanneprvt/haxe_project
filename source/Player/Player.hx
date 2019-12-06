@@ -42,9 +42,9 @@ class Player extends BaseObject
 			case INIT: {}
 			case NORMAL:
 			{
-				_MouseHandler(elapsed);
-				_UpdateSpeed(elapsed);
-				_UpdatePosition(elapsed);
+				this._MouseHandler(elapsed);
+				this._UpdateSpeed(elapsed);
+				this._UpdatePosition(elapsed);
 			}
 		}
 		// js.Browser.console.log("updating");
@@ -123,10 +123,13 @@ class Player extends BaseObject
 			{
 				// js.Browser.console.log(AssetPaths.mc__idle__png);
 				this.loadGraphic("assets/images/Player/mc_idle.png", true, 512, 510);
+				//
 				this.animation.add("idle", [0,1,2,3,4,5,6,7,8], 5, true);
 				this.animation.play("idle");
+				//
 				this.scale.set(0.25, 0.25);
 				this.updateHitbox();
+				//
 				Start();
 			}
 

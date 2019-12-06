@@ -9,6 +9,7 @@ class GameDefine
     public static var APP_H                     :Float;
 
     //ENEMY BOARD
+    public static var ENEMY_POOL_LENGTH         :Float;
     public static var ENEMY_BOARD_OFFSET_LEFT   :Float;
     public static var ENEMY_BOARD_OFFSET_RIGHT  :Float;
     public static var ENEMY_BOARD_OFFSET_TOP    :Float;
@@ -26,6 +27,7 @@ class GameDefine
         APP_H = Lib.application.window.height;
 
         //ENEMY BOARD
+        ENEMY_POOL_LENGTH             = 50;
         ENEMY_BOARD_OFFSET_LEFT       = 150;
         ENEMY_BOARD_OFFSET_RIGHT      = 150;
         ENEMY_BOARD_OFFSET_TOP        = 150;

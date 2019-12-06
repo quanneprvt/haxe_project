@@ -55,7 +55,7 @@ class EnemyMgr extends ObjectMgr
                 if (!isFirstInit)
                 {
                     isFirstInit = true;
-                    _MakeObjectArr(mEnemyArr, Enemy, 15);
+                    _MakeObjectArr(mEnemyArr, Enemy, GameDefine.ENEMY_POOL_LENGTH);
                     //
                     for (i in 0...15) add(mEnemyArr[i]);
                 }
